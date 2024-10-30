@@ -1,0 +1,75 @@
+.scoreboard {
+  display: flex;
+  flex-direction: row; // Use row layout for landscape
+  justify-content: space-around; // Space teams evenly
+  align-items: center; // Center align items
+  padding: 5px; // Add padding around the scoreboard
+  flex-wrap: wrap; // Allow items to wrap on smaller screens
+
+  .team {
+    width: 45%; // Set width for each team section
+    max-width: 400px; // Limit width on larger screens
+    margin: 5px; // Space between team sections
+    padding: 10px; // Padding inside team sections
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s; // Transition for color change
+
+    // Define colors based on team
+    &.team-a {
+      background-color: lightgreen; // Team 1 color
+    }
+
+    &.team-b {
+      background-color: lightsalmon; // Team 2 color
+    }
+
+    h2 {
+      font-size: 2.5em; // Larger font for team name
+      margin: 5px;
+    }
+
+    p {
+      font-size: 5em; // Larger font for scores
+      margin: 5px;
+    }
+
+    // Styles for the input fields
+    input[type="number"] {
+      width: 92%; // Full width for mobile
+      padding: 10px; // Padding for comfort
+      font-size: 1.2em; // Increase font size
+      margin-bottom: 10px; // Space between input and buttons
+      border: 2px solid #ccc; // Border for inputs
+      border-radius: 5px; // Rounded corners
+    }
+    .button_array {
+      display: flex;
+      width: 100%; // Full width for mobile
+      justify-content: space-around; // Space teams evenly
+      align-items: center; // Center align items
+    }
+  }
+
+  button {
+    width: 97%; // Width for mobile
+    padding: 15px; // Increased padding for larger buttons
+    font-size: 1.2em; // Larger font size
+    margin: 5px; // Space between buttons
+    border: none; // Remove default border
+    border-radius: 5px; // Rounded corners
+    background-color: #007bff; // Button background color
+    color: white; // Button text color
+    cursor: pointer; // Pointer cursor for buttons
+    transition: background-color 0.3s; // Transition for hover effect
+
+    &:hover {
+      background-color: darken(#007bff, 10%); // Darken button on hover
+    }
+  }
+
+  .switch {
+    margin-top: 10px; // Space above the switch button
+    background-color: #28a745; // Different color for the switch button
+  }
+}

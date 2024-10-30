@@ -1,0 +1,51 @@
+<div class="scoreboard">
+  <!-- Team 1 section -->
+  <div [ngClass]="isSwitched ? 'team team-b' : 'team team-a'" id="team-1">
+    <h2>{{ isSwitched ? team2.name : team1.name }}</h2>
+    <p>{{ isSwitched ? team2.score : team1.score }}</p>
+
+    <div class="button_array">
+      <button class="button_increase" (click)="incrementScore(isSwitched ? 2 : 1)">+1</button>
+      <button class="button_decrease" (click)="decrementScore(isSwitched ? 2 : 1)">-1</button>
+    </div>
+    <div *ngIf="!showTeam1Input && isShowOptions">
+      <button (click)="showScoreInput( isSwitched ? 2 : 1)">Set Score</button></div>
+    <div *ngIf="showTeam1Input">
+      <input
+        type="number"
+        [(ngModel)]="team1InputValue"
+        [value]="isSwitched ? team2.score : team1.score"
+        placeholder="Set Score" />
+      <button (click)="saveScore()">Confirm Score</button>
+    </div>
+  </div>
+
+  <!-- Team 2 section -->
+  <div [ngClass]="isSwitched ? 'team team-a' : 'team team-b'" id="team-2">
+    <h2>{{ isSwitched ? team1.name : team2.name }}</h2>
+    <p>{{ isSwitched ? team1.score : team2.score }}</p>
+
+    <div class="button_array">
+      <button class="button_increase" (click)="incrementScore(isSwitched ? 1 : 2)">+1</button>
+      <button class="button_decrease" (click)="decrementScore(isSwitched ? 1 : 2)">-1</button>
+    </div>
+    <div *ngIf="!showTeam2Input && isShowOptions">
+      <button (click)="showScoreInput( isSwitched ? 1 : 2)">Set Score</button>
+    </div>
+
+    <div *ngIf="showTeam2Input">
+      <input
+        type="number"
+        [(ngModel)]="team2InputValue"
+        [value]="isSwitched ? team1.score : team2.score"
+        placeholder="Set Score"
+      />
+      <button (click)="saveScore()">Confirm Score</button>
+    </div>
+  </div>
+
+  <button *ngIf="!isShowOptions" class="options" (click)="showOptions()">Show Options</button>
+  <button *ngIf="isShowOptions"class="switch" (click)="switchSides()">Switch Sides</button>
+  <button *ngIf="isShowOptions" class="options" (click)="showOptions()">Hide Options</button>
+
+</div>
